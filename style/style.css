@@ -1,0 +1,25 @@
+body {
+    background: url(f.jpg) repeat;
+    width: 100%;
+
+    display: table;
+
+}
+
+.field-block{
+    margin: 5px;
+    background-color: #fdfdfd;
+}
+
+.field-block>hr{
+    height: 2px;
+    width: 95%;
+    color: #333;
+}
+
+.field-block .tag{
+    width: auto;
+    text-align: justify;
+    font-size: 8pt;
+    color: darkgray;
+}
