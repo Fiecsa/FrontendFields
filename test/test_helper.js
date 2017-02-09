@@ -14,7 +14,7 @@ global.window = global.document.defaultView;
 const $ = _$(window);
 
 chaiJquery(chai, chai.util, $);
-
+//help test
 function renderComponent(ComponentClass, props = {}, state = {}) {
   const componentInstance =  TestUtils.renderIntoDocument(
     <Provider store={createStore(reducers, state)}>
