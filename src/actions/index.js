@@ -7,17 +7,16 @@ export const SHOW_USERS = 'SHOW_USERS';
 /* Server IP
  * 1) 46.236.137.153 - Main
  * 2) 192.100.0.95 - Second
+ * 3) 192.168.1.155
  */
 
 export function showUsers() {
-    
     return (dispatch, getState) => {
         axios.get('http://46.236.137.153/field?expand=tags')
             .then((response) => {
                 dispatch( { type: SHOW_USERS, payload: response.data, header: {'Accept': 'application/json'} } )
             }) 
     }
-    
 }
 
 export function deleteArticle(id) {

@@ -1,14 +1,47 @@
+html{
+    background-image: url(grass-background.jpg);
+    background-repeat: repeat;
+    background-position: center;
+}
+
 body {
-    background: url(f.jpg) repeat;
     width: 100%;
-
     display: table;
+    background-color: inherit;
+    font-family: 'Raleway', sans-serif;
+}
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+* html .wrapper {
+    height: 100%;
+}
+
+.container{
+    background-color: white;
+    height: 60%;
+ }
+
+.nav-tabs>li>a{
+    border-radius: inherit;
+}
+
+#characteristic-fields{
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .field-block{
-    margin: 5px;
     background-color: #fdfdfd;
+    width: 100%;
 }
 
 .field-block>hr{
@@ -22,4 +55,179 @@ body {
     text-align: justify;
     font-size: 8pt;
     color: darkgray;
+}
+
+.search-button{
+    margin: 20px 40px;
+    float: right;
+}
+
+#search-bar input, button{
+    height: 30px;
+}
+
+.form-control{
+    margin-bottom: 25px;
+}
+
+.form-group{
+    width: 50%;
+}
+
+.form-group div{
+    border-bottom: none;
+    margin-bottom: 25px;
+}
+
+select{
+    width: 125px;
+    margin-bottom: 25px;
+}
+
+#header{
+    margin-bottom: 31px;
+    background-color: white;
+}
+
+#description-field{
+    float: right;
+}
+
+.time input{
+    width: 62px;
+}
+
+.time div{
+    display: inline-block; /*располагаем блоки в ряд по горизонтали*/
+    margin: 0 auto;
+}
+
+.dash{
+    width: 10px;
+}
+
+.start-work, .over-work p{
+    display: inline;
+}
+
+.row{
+    margin: 0;
+   /* padding: 14px 0 15px;*/
+    border-bottom: 1px solid #e7e8ec;
+}
+
+#create-field{
+    background-color: #fff;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 290px;
+}
+
+#create-field h1{
+    margin-left: 8.1em;
+    margin-bottom: 30px;
+}
+
+#create-field div{
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+#create-field button{
+    float: right;
+    margin-right: 22em;
+}
+
+.search-field{
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 0 0 0 50px;
+}
+
+.btn-outline-danger{
+    visibility: hidden;
+}
+
+.col-md-9 {
+    border: 1px solid black;
+    background-color: gainsboro;
+    margin-bottom: 35px;
+}
+
+.logo i{
+    color: black;
+    cursor: pointer;
+    z-index: 55;
+}
+
+/*@media (min-width: 1200px){
+    .container {
+        width: 1237px;
+    }}*/
+
+#search-bar div{
+    float: right;
+    margin-right: 12px;
+}
+
+#search-bar{
+    border-bottom: none;
+}
+
+
+.login{
+    margin-top: 51px;
+    margin-left: auto;
+    padding-bottom: 25px;
+    width: 60%;
+}
+
+.login div{
+    border-bottom: none;
+    margin: auto;
+}
+
+#password div{
+    margin: 0 auto;
+}
+
+#autoriz h2{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#login, #password, #access{
+    padding-bottom: 10px;
+}
+
+#access a{
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#registration{
+    height: 34px;
+}
+
+.field-image{
+    width: 350px;
+}
+
+.field-image img{
+    text-align: center;
+}
+
+.post-fields div{
+    margin: 20px;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+
+.login{
+    padding-bottom: 500px;
 }

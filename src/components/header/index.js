@@ -7,16 +7,30 @@ export default class Header extends React.Component {
     
     render() {
         return (
-            <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div className="container">
-                        <ul className="nav navbar-nav navbar-right">
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='articles/new'>New Art</Link></li>
-                        </ul>
-
+            <header id="header">
+                <div className="logo">
 
                 </div>
-            </nav>
+                <nav className="navbar navbar-default navbar-fixed-top nav-tabs"  role="navigation">
+                    <div className="container">
+                        <ul className="nav navbar-nav navbar-right nav-tabs">
+                            <li><Link to='/'>Главная</Link></li>
+                            <li><Link to='articles/new'>Новое поле</Link></li>
+                            <li><Link to='/login'>Войти</Link></li>
+                            <li className="dropdown">
+                                <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Редактировать
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="">Добавить</a></li>
+                                    <li><a href="">Изменить</a></li>
+                                    <li><a href="">Удалить</a></li>
+                                </ul>
+                            </li>
+                         </ul>
+                    </div>
+                </nav>
+            </header>
         );
     }
 

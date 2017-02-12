@@ -1,9 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
-import { connect } from 'react-redux'
-import { showUsers } from '../../actions'
-import { Table } from 'react-bootstrap'
-import {reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
+import { showUsers } from '../../actions';
+import { Table } from 'react-bootstrap';
+import { reduxForm } from 'redux-form';
 import {deleteArticle} from '../../actions/index';
 import SearchBar from '../../components/search_bar';
 import {Link} from 'react-router';
@@ -35,19 +35,25 @@ class Home extends Component {
 
         this.setState({ filtered });
     }
-  
+
   renderUsersList() {
       return this.props.users.map((user) => {
       return (
 
-
-
-          <div key={user.id} className='field-block col-md-6'>
-          <p>Адрес:{user.adress}</p>
-          <p>Способ оплаты:{user.cost_type}</p>
-          <p>Тип поля:{user.field_type}</p>
-          <p>Время работы:{user.time}</p>
-          <p>Телефон:{user.phone}</p>
+<section id="characteristic-fields" className="container">
+      <div key={user.id} className='field-block col-md-9'>
+         <div className="post-fields">
+             <div className="col-md-4">
+                 <img className="field-image" src="style/field.jpg"/>
+             </div>
+             <div id="description-field" className="col-md-6">
+                <p>Адрес:  {user.adress}</p>
+                <p>Способ оплаты:  {user.cost_type}</p>
+                <p>Тип поля:   {user.field_type}</p>
+                <p>Время работы:   {user.time}</p>
+                <p>Телефон:    {user.phone}</p>
+            </div>
+         </div>
           <hr/>
           <p className="tags">
               {user.tags.map((tag)=>{
@@ -61,37 +67,37 @@ class Home extends Component {
               Удалить поле
           </button>
       </div>
-
+</section>
       )
     })
   }
-  
+
   render() {
-    return (
-      <div>
-        <h2>Поля</h2>
+      return (
+          <section className="search-field">
 
-          <div className="row">
-              <div className="col-md-12">
-                  <SearchBar onSearchTerm={this.componentWillMount.bind(this)} />
+              <h2>Поля</h2>
+
+              <div id="search-bar" className="row">
+                  <div className="col-md-5">
+                      <SearchBar onSearchTerm={this.componentWillMount.bind(this)}/>
+                  </div>
               </div>
-          </div>
 
-          <div>
-              <Link to="articles/new" className="btn btn-warning">
-                  Create Article
-              </Link>
-          </div>
-            <div>
-          <Link to="login" className="btn btn--login">Login</Link>
-            </div>
+              <div className="search-button">
+                  <Link to="articles/new" className="btn btn-warning">
+                      Добавить поле
+                  </Link>
+              </div>
 
-          <div className='row b-list-caret'>
-              { this.renderUsersList() }
+              <div>
+              </div>
 
-          </div>
-      </div>
-    );
+              <div className='row b-list-caret'>
+                  { this.renderUsersList() }
+              </div>
+          </section>
+      );
   }
 }
 

@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
+import Header from '../../components/header/index';
 
 class App extends Component{
   render(){
-    return(
-      <div>
-      Navbar
-      {this.props.children}
-      </div>
-    )
+    return (
+        <div>
+            <Header/>
+            {this.props.children}
 
+        </div>
+     )
   }
 }
 
