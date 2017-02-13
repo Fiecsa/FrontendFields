@@ -27,7 +27,7 @@ export default class Header extends React.Component {
                     <p>Пароль: </p>
                 </div>
                 <div className="col-md-4">
-                    <input type="text" placeholder="************"/>
+                    <input type="password" placeholder="************"/>
                 </div>
             </div>
             <div id="access" className="row">

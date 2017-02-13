@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form'; 
 import {createArticle} from '../../actions/index';
+let  MaskedInput = require('react-maskedinput');
 
 class NewArticle extends Component{
 
@@ -16,10 +17,12 @@ class NewArticle extends Component{
                   });
       }
 
+
   render(){
       const {fields:{adress, cost_type, field_type, time, phone}, handleSubmit} = this.props;
 
       return(
+
           <section id="create-field" className="container">
 
                 <h1> Создание поля </h1>
@@ -75,7 +78,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="start-work">
-                                    <input type="text" className="form-control" {...time} placeholder="00:00"/>
+                                    <input type="time" className="form-control" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                             <div id="dash" className="col-md-1">
@@ -83,7 +86,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="over-work">
-                                    <input type="text" className="form-control" {...time} placeholder="00:00"/>
+                                    <input type="time" className="form-control" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                         </div>
@@ -95,14 +98,20 @@ class NewArticle extends Component{
                                 <p>Телефон: </p>
                             </div>
                             <div className="col-md-6">
-                                <input type="text" className="form-control" {...phone} placeholder="8-(9__)-___-__-__"/>
+                                <MaskedInput id="phone" mask="+7-111-111-11-11" type="text" className="form-control" {...phone}/>
                             </div>
                         </div>
                     </div>
                 </div>
                     <button type="submit" className="btn btn-success">Создать</button>
                 </form>
-
+              <script type="text/javascript" src="src/public/js/jquery-3.1.1.js"></script>
+              <script type="text/javascript" src="src/public/js/jquery-3.1.1.min.js"></script>
+              /*<script>
+                  function($){
+                  $("#phone").mask("+7 (999) 999-9999")
+              }
+              </script>*/
           </section>
       );
   }
@@ -111,6 +120,6 @@ class NewArticle extends Component{
 export default reduxForm({
     form: 'NewArticleForm',
     fields: ['adress', 'cost_type', 'field_type', 'time', 'phone']
-}, null, {createArticle})(NewArticle); 
+}, null, {createArticle})(NewArticle);
 
 
