@@ -19,7 +19,7 @@ export default class Header extends React.Component {
                     <p>Логин: </p>
                 </div>
                 <div className="col-md-4">
-                    <input type="text" placeholder=""/>
+                    <input type="text" placeholder="Логин"/>
                 </div>
             </div>
             <div id="password" className="row">
@@ -27,7 +27,7 @@ export default class Header extends React.Component {
                     <p>Пароль: </p>
                 </div>
                 <div className="col-md-4">
-                    <input type="text" placeholder=""/>
+                    <input type="text" placeholder="************"/>
                 </div>
             </div>
             <div id="access" className="row">
@@ -38,5 +38,4 @@ export default class Header extends React.Component {
         </section>
         );
     }
-
 }

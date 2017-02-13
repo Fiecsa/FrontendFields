@@ -62,7 +62,7 @@ class NewArticle extends Component{
                                 <select>
                                     <option>Выберите тип</option>
                                     <option>Открытое</option>
-                                    <option>Закртое</option>
+                                    <option>Закрытое</option>
                                 </select>
                             </div>
                         </div>
@@ -78,7 +78,9 @@ class NewArticle extends Component{
                                     <input type="text" className="form-control" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
+                            <div id="dash" className="col-md-1">
                                 <p> - </p>
+                            </div>
                             <div className="col-md-2">
                                 <div className="over-work">
                                     <input type="text" className="form-control" {...time} placeholder="00:00"/>
@@ -98,7 +100,7 @@ class NewArticle extends Component{
                         </div>
                     </div>
                 </div>
-                  <button type="submit" className="btn btn-success">Создать</button>
+                    <button type="submit" className="btn btn-success">Создать</button>
                 </form>
 
           </section>

@@ -102,11 +102,11 @@ select{
     margin: 0 auto;
 }
 
-.dash{
+#dash{
     width: 10px;
 }
 
-.start-work, .over-work p{
+.start-work, .over-work p {
     display: inline;
 }
 
