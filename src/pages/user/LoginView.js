@@ -34,9 +34,6 @@ export default class Header extends React.Component {
                 <div className="col-md-2">
                     <button className="btn btn-success">Войти</button>
                 </div>
-                <div id="registration" className="col-md-2">
-                    <a href="#">Регистрация</a>
-                </div>
             </div>
         </section>
         );
