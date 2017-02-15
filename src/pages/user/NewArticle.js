@@ -15,6 +15,7 @@ class NewArticle extends Component{
                   .then(() => {
                       this.context.router.push('/');
                   });
+
       }
 
 
@@ -107,11 +108,6 @@ class NewArticle extends Component{
                 </form>
               <script type="text/javascript" src="src/public/js/jquery-3.1.1.js"></script>
               <script type="text/javascript" src="src/public/js/jquery-3.1.1.min.js"></script>
-              /*<script>
-                  function($){
-                  $("#phone").mask("+7 (999) 999-9999")
-              }
-              </script>*/
           </section>
       );
   }

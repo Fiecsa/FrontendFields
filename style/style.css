@@ -94,7 +94,7 @@ select{
 }
 
 .time input{
-    width: 90px;
+    width: 100px;
 }
 
 .time div{
@@ -229,8 +229,26 @@ footer{
     width: 100%;
     height: 50px;
     background-color: white;
+    vertical-align: middle;
+}
+
+footer p{
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
 }
 
 .login{
     padding-bottom: 500px;
 }
+
+@-moz-document url-prefix() {
+    footer {margin-top: 26px}
+}
+
+@-moz-document url-prefix() {
+    #create-field {margin-top: 5px}
+}
+

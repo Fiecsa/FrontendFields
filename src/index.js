@@ -1,3 +1,10 @@
+require('es5-shim');
+require('es5-shim/es5-sham');
+require('console-polyfill');
+require('es6-promise').polyfill();
+require('fetch-ie8');
+
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

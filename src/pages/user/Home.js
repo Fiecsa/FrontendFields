@@ -8,7 +8,6 @@ import {deleteArticle} from '../../actions/index';
 import SearchBar from '../../components/search_bar';
 import {Link} from 'react-router';
 
-
 class Home extends Component {
   
   componentWillMount() {
@@ -54,7 +53,7 @@ class Home extends Component {
                 <p>Телефон:    {user.phone}</p>
             </div>
          </div>
-          <hr/>
+          <div className="row"></div>
           <p className="tags">
               {user.tags.map((tag)=>{
               return(
