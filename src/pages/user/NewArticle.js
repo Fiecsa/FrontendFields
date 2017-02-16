@@ -1,6 +1,29 @@
 import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form'; 
 import {createArticle} from '../../actions/index';
+import TimeInput from 'react-time-input';
+
+let TimeWrapper = React.createClass({
+
+
+    onTimeChangeHandler: function (val) {
+
+        // do something with this value
+
+    },
+
+    render: function() {
+        return (
+            <TimeInput
+                initTime='11:12'
+                ref="TimeInputWrapper"
+                className='form-control'
+                mountFocus='true'
+                onTimeChange={this.onTimeChangeHandler}
+            />
+        );
+    }
+});
 let  MaskedInput = require('react-maskedinput');
 
 class NewArticle extends Component{
@@ -79,7 +102,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="start-work">
-                                    <input type="time" className="form-control" {...time} placeholder="00:00"/>
+                                    <TimeInput type="text" id="timepicker-one" name="timepicker-one" className="timepicker" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                             <div id="dash" className="col-md-1">
@@ -87,7 +110,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="over-work">
-                                    <input type="time" className="form-control" {...time} placeholder="00:00"/>
+                                    <TimeInput type="text" id="timepicker-one" name="timepicker-one" className="timepicker" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                         </div>

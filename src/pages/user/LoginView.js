@@ -8,7 +8,7 @@ export default class Header extends React.Component {
     render() {
         return (
 
-        <section className="login">
+        <article className="login">
             <div className="row">
                 <div id="autoriz" className="col-md-3">
                     <h2>Авторизация</h2>
@@ -35,7 +35,7 @@ export default class Header extends React.Component {
                     <button className="btn btn-success">Войти</button>
                 </div>
             </div>
-        </section>
+        </article>
         );
     }
 }
