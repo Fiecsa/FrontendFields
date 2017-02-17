@@ -1,13 +1,33 @@
 import React from 'react';
 import {Link} from 'react-router';
+var Router = require('react-router');
+
 
 export default class Header extends React.Component {
 
     static path = '/';
 
+    login()
+    {
+        let url = "http://46.236.137.153/login"; // the script where you handle the form input.
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                dataType: 'json',
+                data: $("#idForm").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    Router.browserHistory.push('/');
+                }
+            });
+    }
+
+
+
     render() {
         return (
-            <form className="login">
+            <form id="idForm" className="login">
                 <div className="row">
                     <div id="autoriz" className="col-md-3">
                         <h2>Авторизация</h2>
@@ -18,7 +38,7 @@ export default class Header extends React.Component {
                         <p>Логин: </p>
                     </div>
                     <div className="col-md-4">
-                        <input type="text" placeholder="Логин"/>
+                        <input name="username" type="text" placeholder="Логин"/>
                     </div>
                 </div>
                 <div id="password" className="row">
@@ -26,12 +46,12 @@ export default class Header extends React.Component {
                         <p>Пароль: </p>
                     </div>
                     <div className="col-md-4">
-                        <input type="password" placeholder="************"/>
+                        <input name="password" type="password" placeholder="************"/>
                     </div>
                 </div>
                 <div id="access" className="row">
                     <div className="col-md-2">
-                        <button className="btn btn-success" type="submit">Войти</button>
+                        <button className="btn btn-success" type="button" onClick={this.login}>Войти</button>
                     </div>
                 </div>
             </form>
