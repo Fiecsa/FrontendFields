@@ -83,12 +83,6 @@ class Home extends Component {
                   </div>
               </div>
 
-              <div className="search-button">
-                  <Link to="articles/new" className="btn btn-warning">
-                      Добавить поле
-                  </Link>
-              </div>
-
               <div>
               </div>
 
