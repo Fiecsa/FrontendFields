@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-var Router = require('react-router');
+let Router = require('react-router');
 
 
 export default class Header extends React.Component {
@@ -9,16 +9,20 @@ export default class Header extends React.Component {
 
     login()
     {
-        let url = "http://46.236.137.153/login"; // the script where you handle the form input.
+        let url = "http://46.236.137.153/login";
 
             $.ajax({
-                type: "POST",
+                type: "POST", /*POST - предназначен для отправления данных на сервер;*/
                 url: url,
                 dataType: 'json',
-                data: $("#idForm").serialize(), // serializes the form's elements.
+                data: $("#idForm").serialize(), //#idForm - айдишник формы/#idForm - the form ID
                 success: function(data)
                 {
                     Router.browserHistory.push('/');
+                },
+                error: function ()
+                {
+                    alert("Введите правильный логин/пароль.");
                 }
             });
     }
