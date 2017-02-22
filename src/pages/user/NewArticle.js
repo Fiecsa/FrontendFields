@@ -24,16 +24,34 @@ let TimeWrapper = React.createClass({
         );
     }
 });
+
 let  MaskedInput = require('react-maskedinput');
 
 class NewArticle extends Component{
 
   static contextTypes = {
       router: PropTypes.object
-  }
+  };
+
+/*    NewField()
+    {
+        $.ajax
+        ({
+            type: "POST",
+            url: "http://46.236.137.153/articles/new",
+            datatype: "json",
+            data: $("#add-field-form").serialize(),
+            succsess: function(){
+                $("#responds").append(response);
+            },
+            error: function() {
+                alert("Заполняйте поля правильно.");
+            },
+            }
+        )};*/
+
 
       onSubmit(props){
-          alert('asd' + this.props);
               this.props.createArticle(props)
                   .then(() => {
                       this.context.router.push('/');
@@ -53,14 +71,14 @@ class NewArticle extends Component{
 
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-                <div className="form-group">
+                <div id="add-field-form" className="form-group">
                     <div className="row">
                         <div className="adress">
                            <div className="col-md-3">
                                 <p>Адрес:</p>
                            </div>
                            <div className="col-md-6">
-                                <input type="text" className="form-control" {...adress} placeholder="Улица"/>
+                                <input name="adress" type="text" className="form-control" {...adress} placeholder="Улица"/>
                            </div>
                         </div>
                     </div>
@@ -71,7 +89,7 @@ class NewArticle extends Component{
                                 <p>Доступ к полю:</p>
                             </div>
                             <div className="col-md-3">
-                                <select>
+                                <select name="cost_type">
                                     <option>Выберите тип</option>
                                     <option>Платный</option>
                                     <option>Бесплатный</option>
@@ -86,7 +104,7 @@ class NewArticle extends Component{
                                <p>Тип поля: </p>
                             </div>
                             <div className="col-md-3">
-                                <select>
+                                <select name="field_type">
                                     <option>Выберите тип</option>
                                     <option>Открытое</option>
                                     <option>Закрытое</option>
@@ -102,7 +120,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="start-work">
-                                    <TimeInput type="text" id="timepicker-one" name="timepicker-one" className="timepicker" {...time} placeholder="00:00"/>
+                                    <TimeInput type="text" id="timepicker-one" name="time" className="timepicker" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                             <div id="dash" className="col-md-1">
@@ -110,7 +128,7 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-2">
                                 <div className="over-work">
-                                    <TimeInput type="text" id="timepicker-one" name="timepicker-one" className="timepicker" {...time} placeholder="00:00"/>
+                                    <TimeInput type="text" id="timepicker-one" name="time" className="timepicker" {...time} placeholder="00:00"/>
                                 </div>
                             </div>
                         </div>
@@ -122,12 +140,31 @@ class NewArticle extends Component{
                                 <p>Телефон: </p>
                             </div>
                             <div className="col-md-6">
-                                <MaskedInput id="phone" mask="+7-111-111-11-11" type="text" className="form-control" {...phone}/>
+                                <MaskedInput name="phone" id="phone" mask="+7-(111)-111-11-11" type="text" className="form-control" {...phone}/>
                             </div>
                         </div>
                     </div>
+
+                    <div className="row">
+                        <div className="tags">
+                            <div className="col-md-3">Теги: </div>
+                            <div className="col-md-3">  <div className="btn-group">
+                                <button id="football-field-admin" className="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                    Теги <span className="caret"> </span>
+                                </button>
+                                <ul className="dropdown-menu">
+                                    <li><input type="checkbox">Тег1</input> </li>
+                                    <li><input type="checkbox">Тег2</input>  </li>
+                                    <li><input type="checkbox">Тег3</input> </li>
+                                    <li><input type="checkbox">Тег4</input> </li>
+                                    <li><input type="checkbox">Тег5</input> </li>
+                                    <li><input type="checkbox">Тег6</input> </li>
+                                </ul>
+                            </div></div>
+                        </div>
+                    </div>
                 </div>
-                    <button type="submit" className="btn btn-success">Создать</button>
+                    <button type="submit" className="btn btn-success" onClick={this.NewField}>Создать</button>
                 </form>
               <script type="text/javascript" src="src/public/js/jquery-3.1.1.js"></script>
               <script type="text/javascript" src="src/public/js/jquery-3.1.1.min.js"></script>
@@ -139,6 +176,7 @@ class NewArticle extends Component{
 export default reduxForm({
     form: 'NewArticleForm',
     fields: ['adress', 'cost_type', 'field_type', 'time', 'phone']
-}, null, {createArticle})(NewArticle);
+},
+null, {createArticle})(NewArticle);
 
 

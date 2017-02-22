@@ -13,11 +13,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/style/admin-style.css">
+    <link rel="stylesheet" href="/style/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="src/public/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+<style>
+    #football-field-admin, #tags-admin, #address-admin {
+        width: 200px;
+    }
+    .admin-caret{
+        float: right;
+        vertical-align: bottom;
+    }
+</style>
     <header>
         <div class="row">
             <div class="col-md-3">
@@ -33,9 +42,12 @@
         </div>
     </header>
     <body>
-    <div class="btn-group ">
+    <div></div>
+    <div></div>
+    <nav class="nav nav-pills nav-stacked">
+    <div class="btn-group">
         <button id="football-field-admin" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-            Футбольные поля             <span class="caret"></span>
+            Футбольные поля             <span class="caret admin-caret"></span>
         </button>
         <ul class="dropdown-menu">
             <li><input type="checkbox">Вокзальный район</li>
@@ -45,11 +57,11 @@
             <li><input type="checkbox">Октябрьский район</li>
             <li><input type="checkbox">Советский район</li>
         </ul>
-    </div>
+    </div><br>
 
     <div class="btn-group">
         <button id="tags-admin" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-            Теги             <span class="caret"></span>
+            Теги             <span class="caret admin-caret"></span>
         </button>
         <ul class="dropdown-menu">
             <li><input type="checkbox">Раздевалка</li>
@@ -59,11 +71,11 @@
             <li><input type="checkbox">Октябрьский район</li>
             <li><input type="checkbox">Советский район</li>
         </ul>
-    </div>
+    </div><br>
 
     <div class="btn-group">
         <button id="address-admin" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-            Район             <span class="caret"></span>
+            Район             <span class="caret admin-caret"></span>
         </button>
         <ul class="dropdown-menu">
             <li><input type="checkbox">Вокзальный район</li>
@@ -74,6 +86,7 @@
             <li><input type="checkbox">Советский район</li>
         </ul>
     </div>
+    </nav>
 <table class="table">
 <th>Адрес</th>
 <th>Доступ к полю</th>

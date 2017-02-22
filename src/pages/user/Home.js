@@ -9,7 +9,7 @@ import SearchBar from '../../components/search_bar';
 import {Link} from 'react-router';
 
 class Home extends Component {
-  
+
   componentWillMount() {
     this.props.showUsers()
   }
@@ -35,7 +35,7 @@ class Home extends Component {
         this.setState({ filtered });
     }
 
-  renderUsersList() {
+renderUsersList() {
       return this.props.users.map((user) => {
       return (
 
@@ -47,6 +47,7 @@ class Home extends Component {
              </div>
              <div id="description-field" className="col-md-6">
                 <p>Адрес:  {user.adress}</p>
+                <p>Район: {user.district} </p>
                 <p>Способ оплаты:  {user.cost_type}</p>
                 <p>Тип поля:   {user.field_type}</p>
                 <p>Время работы:   {user.time}</p>
@@ -62,9 +63,6 @@ class Home extends Component {
           })}
           </p>
           <h5>#{user.id}</h5>
-          <button className="btn btn-outline-danger btn-sm" onClick={this.deleteButtonClick.bind(this,user.id)}>
-              Удалить поле
-          </button>
       </div>
 </section>
       )

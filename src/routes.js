@@ -8,6 +8,7 @@ import LoginView from './pages/user/LoginView';
 export default(
   <Route path="/" component={App}>
       <IndexRoute component={Home} />
+      <Route path="/home" component={Home} />
       <Route path="/articles/new" component={NewArticle} />
       <Route path="/login" component={LoginView} />
   </Route>

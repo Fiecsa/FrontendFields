@@ -133,7 +133,6 @@ select{
 
 #create-field div{
     margin: 0 auto;
-    vertical-align: middle;
 }
 
 #create-field button{
@@ -245,4 +244,3 @@ footer p{
 @-moz-document url-prefix() {
     #create-field {margin-top: 5px}
 }
-

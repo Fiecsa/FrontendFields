@@ -9,7 +9,7 @@ export default class Header extends React.Component {
 
     login()
     {
-        let url = "http://46.236.137.153/login";
+        let url = "http://192.168.1.155/login";
 
             $.ajax({
                 type: "POST", /*POST - предназначен для отправления данных на сервер;*/
@@ -18,11 +18,11 @@ export default class Header extends React.Component {
                 data: $("#idForm").serialize(), //#idForm - айдишник формы/#idForm - the form ID
                 success: function(data)
                 {
-                    Router.browserHistory.push('/');
+                    Router.browserHistory.push('/home');
                 },
                 error: function ()
                 {
-                    alert("Введите правильный логин/пароль.");
+                    alert("Неверный логин/пароль.");
                 }
             });
     }
@@ -50,10 +50,10 @@ export default class Header extends React.Component {
                         <p>Пароль: </p>
                     </div>
                     <div className="col-md-4">
-                        <input name="password" type="password" placeholder="************"/>
+                        <input name="password" type="password" placeholder="*********"/>
                     </div>
                 </div>
-                <div id="access" className="row">
+              <div id="access" className="row">
                     <div className="col-md-2">
                         <button className="btn btn-success" type="button" onClick={this.login}>Войти</button>
                     </div>
