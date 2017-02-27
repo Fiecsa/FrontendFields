@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+
 let Router = require('react-router');
 
 
@@ -9,7 +10,7 @@ export default class Header extends React.Component {
 
     login()
     {
-        let url = "http://192.168.1.155/login";
+        let url = "http://46.236.137.153/login";
 
             $.ajax({
                 type: "POST", /*POST - предназначен для отправления данных на сервер;*/
@@ -18,7 +19,7 @@ export default class Header extends React.Component {
                 data: $("#idForm").serialize(), //#idForm - айдишник формы/#idForm - the form ID
                 success: function(data)
                 {
-                    Router.browserHistory.push('/home');
+                    Router.browserHistory.push('/admin');
                 },
                 error: function ()
                 {
@@ -26,8 +27,6 @@ export default class Header extends React.Component {
                 }
             });
     }
-
-
 
     render() {
         return (

@@ -149,16 +149,11 @@ class NewArticle extends Component{
                         <div className="tags">
                             <div className="col-md-3">Теги: </div>
                             <div className="col-md-3">  <div className="btn-group">
-                                <button id="football-field-admin" className="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-                                    Теги <span className="caret"> </span>
-                                </button>
                                 <ul className="dropdown-menu">
-                                    <li><input type="checkbox">Тег1</input> </li>
-                                    <li><input type="checkbox">Тег2</input>  </li>
-                                    <li><input type="checkbox">Тег3</input> </li>
-                                    <li><input type="checkbox">Тег4</input> </li>
-                                    <li><input type="checkbox">Тег5</input> </li>
-                                    <li><input type="checkbox">Тег6</input> </li>
+                                    <li><input type="checkbox">Раздевалка</input> </li>
+                                    <li><input type="checkbox">Душевая</input>  </li>
+                                    <li><input type="checkbox">Буфет</input> </li>
+                                    <li><input type="checkbox">Уборная</input> </li>
                                 </ul>
                             </div></div>
                         </div>

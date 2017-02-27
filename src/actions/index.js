@@ -6,13 +6,13 @@ export const SHOW_USERS = 'SHOW_USERS';
 
 /* Server IP
  * 1) 46.236.137.153 - Main
- * 2) 192.100.0.95 - Second
- * 3) 192.168.1.155
+ * 2) 192.100.0.95 - 5G
+ * 3) 192.168.1.155 - GEOS
  */
 
 export function showUsers() {
     return (dispatch, getState) => {
-        axios.get('http://192.168.1.155/field?expand=tags')
+        axios.get('http://46.236.137.153/field?expand=tags')
             .then((response) => {
                 dispatch( { type: SHOW_USERS, payload: response.data, header: {'Accept': 'application/json'} } )
             }) 
@@ -20,7 +20,7 @@ export function showUsers() {
 }
 
 export function deleteArticle(id) {
-    const request = axios.delete('http://192.168.1.155/field/'+id);
+    const request = axios.delete('http://46.236.137.153/field/'+id);
 
     return{
         type: DELETE_ARTICLE,
@@ -29,7 +29,7 @@ export function deleteArticle(id) {
 }
 
 export function createArticle(props){
-    const request = axios.post('http://192.168.1.155/field/', props);
+    const request = axios.post('http://46.236.137.153/field/', props);
     return{
         type: CREATE_ARTICLE,
         payload: request

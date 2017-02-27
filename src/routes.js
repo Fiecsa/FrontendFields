@@ -4,6 +4,9 @@ import App from './pages/user/App';
 import Home from './pages/user/Home';
 import NewArticle from './pages/user/NewArticle';
 import LoginView from './pages/user/LoginView';
+import Admin from './pages/admin/Admin';
+
+
 
 export default(
   <Route path="/" component={App}>
@@ -11,5 +14,6 @@ export default(
       <Route path="/home" component={Home} />
       <Route path="/articles/new" component={NewArticle} />
       <Route path="/login" component={LoginView} />
+      <Route path="/admin" component={Admin} />
   </Route>
 );
