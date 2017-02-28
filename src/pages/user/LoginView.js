@@ -10,7 +10,7 @@ export default class Header extends React.Component {
 
     login()
     {
-        let url = "http://46.236.137.153/login";
+        let url = "http://192.168.1.155/login";
 
             $.ajax({
                 type: "POST", /*POST - предназначен для отправления данных на сервер;*/
