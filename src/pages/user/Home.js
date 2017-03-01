@@ -41,16 +41,16 @@ renderUsersList() {
 
 <section id="characteristic-fields" className="container">
       <div key={user.id} className='field-block col-md-9'>
-         <div className="post-fields">
+         <div id="post-fields" className="post-fields">
              <div className="col-md-4">
                  <img className="field-image" src="style/field.jpg"/>
              </div>
              <div id="description-field" className="col-md-6">
-                <p>Адрес:  {user.adress}</p>
+                <p>Адрес: {user.adress}</p>
                 <p>Район: {user.district} </p>
                 <p>Способ оплаты:  {user.cost_type}</p>
                 <p>Тип поля:   {user.field_type}</p>
-                <p>Время работы:   {user.time}</p>
+                <p>Время работы:  {user.time}</p>
                 <p>Телефон:    {user.phone}</p>
             </div>
          </div>
@@ -77,7 +77,7 @@ renderUsersList() {
 
               <div id="search-bar" className="row">
                   <div className="col-md-5">
-                      <SearchBar onSearchTerm={this.componentWillMount.bind(this)}/>
+                      <SearchBar type="text" className="form-control" id="search-string" ref="search"/>
                   </div>
               </div>
 

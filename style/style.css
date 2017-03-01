@@ -175,7 +175,7 @@ select{
 }
 
 .login{
-    padding-bottom: 320px;
+    padding-bottom: 330px;
     margin-top: 200px;
     margin-left: auto;
     width: 60%;
@@ -236,9 +236,49 @@ footer p{
 }
 
 @-moz-document url-prefix() {
-    footer {margin-top: 26px}
+    footer
+    {
+        margin-top: 26px;
+    }
 }
 
 @-moz-document url-prefix() {
     #create-field {margin-top: 5px}
+}
+
+.form-admin{
+    margin-top: 180px;
+    padding-bottom: 534px;
+}
+
+table{
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+th{
+    background-color: lightgray;
+    width: 150px;
+    border: 1px solid black;
+}
+
+td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.admin_area{
+    padding-bottom: 20px;
+}
+
+.admin_tags{
+    padding-bottom: 50px;
+}
+
+.admin_ABC{
+    vertical-align: middle;
+}
+.create_field_button{
+    float: right;
 }
