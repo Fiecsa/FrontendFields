@@ -1,9 +1,55 @@
 import React from 'react';
-
+import {Link} from 'react-router';
 
 class Admin{
+   /* add_field(){
 
-    render() {
+        let url = "http://192.168.1.155/admin";
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: 'json',
+            data: $("#idForm").serialize(), //#idForm - айдишник формы/#idForm - the form ID
+        });
+    }*/
+
+    district(){
+
+        let url = "http://192.168.1.155/district";
+
+        $.ajax
+        ({
+            type: "GET",
+            url: url,
+            dataType: 'json',
+            success: function(data)
+                {
+                    data.forEach(function (district) {
+                        $("#district").append(
+                            "<div class='tab-pane' id='tab2'>" +
+                            "<table id='district' class='adress'>" +
+                            "<thead>" +
+                            "<tr>" +
+                            "<th>Район" + "</th>" +
+                            "</tr>" +
+                            "</thead>" +
+                            "<tbody>" +
+                            "<tr>" +
+                            "<td>" + district.name + "</td>" +
+                            "</tr>" +
+                            "</tbody>" +
+                            "</table>" +
+                            "</div>"
+                        )
+
+                    })
+                        },
+       });
+   }
+
+    render()
+        {
         return (
             <form className="form-admin">
                 <div className="admin_options col-md-3">
@@ -37,11 +83,11 @@ class Admin{
                 <div className="col-md-8">
 
                     <ul className="nav nav-tabs">
-                        <li className="active"><a href="#tab1"  data-toggle="tab">Футобльное поле</a></li>
+                        <li className="active"><a href="#tab1"  data-toggle="tab">Футбольное поле</a></li>
                         <li><a href="#tab2"  data-toggle="tab">Районы</a></li>
                         <li><a href="#tab3"  data-toggle="tab">Теги</a></li>
-                        <div className="admin_ABC">
-                            <input type="checkbox" name="sort" value="rad1"/>А-Я
+                        <div className="admin_operation">
+                            <Link name="add_field"  to='articles/new' className="admin_add">Добавить</Link>
                         </div>
                     </ul>
 
@@ -68,16 +114,24 @@ class Admin{
                         </div>
 
                         <div className="tab-pane" id="tab2">
-                            <table>
-                                <tr>
-                                    <th>Район</th>
-                                    <th>Адрес поля</th>
-                                </tr>
+                            <table id="district" className="adress">
+                                <thead>
+                                    <tr>
+                                        <th>Район</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                {
+                                    data.map (item => {
+                                        return (
+                                            <tr key={district.id}>
+                                                <td>
+                                                    <Link to={`/district/${district.id}`}>{district.name}</Link>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </table>
                         </div>
@@ -98,7 +152,6 @@ class Admin{
                             </table>
                         </div>
                     </div>
-                        <input className="create_field_button" type="submit" value="Создать"/>
                 </div>
             </form>
         );

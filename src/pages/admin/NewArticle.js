@@ -33,22 +33,22 @@ class NewArticle extends Component{
       router: PropTypes.object
   };
 
-/*    NewField()
+    NewField()
     {
         $.ajax
         ({
             type: "POST",
-            url: "http://46.236.137.153/articles/new",
+            url: "http://192.168.1.155/articles/new",
             datatype: "json",
-            data: $("#add-field-form").serialize(),
+            data: $("#form_new_field").serialize(),
             succsess: function(){
-                $("#responds").append(response);
+                alert("Все нАрм.");
             },
             error: function() {
-                alert("Заполняйте поля правильно.");
+                alert("Что-то не нАрм.");
             },
             }
-        )};*/
+        )};
 
 
       onSubmit(props){
@@ -69,7 +69,7 @@ class NewArticle extends Component{
 
                 <h1> Создание поля </h1>
 
-                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                <form  id="form_new_field" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
                 <div id="add-field-form" className="form-group">
                     <div className="row">
@@ -84,15 +84,29 @@ class NewArticle extends Component{
                     </div>
 
                     <div className="row">
+                        <div className="district">
+                            <div className="col-md-3">
+                                <p>Район: </p>
+                            </div>
+                            <div className="col-md-6">
+                                <select>
+                                    <option name="district">Кировский</option>
+                                    <option name="district">Октябрьский</option>
+                                    <option name="district">Советский</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
                         <div className="cost_type">
                             <div className="col-md-3">
                                 <p>Доступ к полю:</p>
                             </div>
                             <div className="col-md-3">
                                 <select name="cost_type">
-                                    <option>Выберите тип</option>
-                                    <option>Платный</option>
                                     <option>Бесплатный</option>
+                                    <option>Платный</option>
                                 </select>
                             </div>
                         </div>
@@ -105,7 +119,6 @@ class NewArticle extends Component{
                             </div>
                             <div className="col-md-3">
                                 <select name="field_type">
-                                    <option>Выберите тип</option>
                                     <option>Открытое</option>
                                     <option>Закрытое</option>
                                 </select>
@@ -116,20 +129,10 @@ class NewArticle extends Component{
                     <div className="row">
                         <div className="time">
                             <div className="col-md-3">
-                                <p>Рабочее время: </p>
+                                <p>Время: </p>
                             </div>
                             <div className="col-md-2">
-                                <div className="start-work">
-                                    <TimeInput type="text" id="timepicker-one" name="time" className="timepicker" {...time} placeholder="00:00"/>
-                                </div>
-                            </div>
-                            <div id="dash" className="col-md-1">
-                                <p> - </p>
-                            </div>
-                            <div className="col-md-2">
-                                <div className="over-work">
-                                    <TimeInput type="text" id="timepicker-one" name="time" className="timepicker" {...time} placeholder="00:00"/>
-                                </div>
+                                <input name="time" type="text"/>
                             </div>
                         </div>
                     </div>
@@ -147,15 +150,15 @@ class NewArticle extends Component{
 
                     <div className="row">
                         <div className="tags">
-                            <div className="col-md-3">Теги: </div>
-                            <div className="col-md-3">  <div className="btn-group">
-                                <ul className="dropdown-menu">
-                                    <li><input type="checkbox">Раздевалка</input> </li>
-                                    <li><input type="checkbox">Душевая</input>  </li>
-                                    <li><input type="checkbox">Буфет</input> </li>
-                                    <li><input type="checkbox">Уборная</input> </li>
-                                </ul>
-                            </div></div>
+                            <div className="col-md-3">
+                                <p>Теги: </p>
+                            </div>
+                            <div className="col-md-3">
+                                <div><input name="tags" type="checkbox"/>Раздевалка</div>
+                                <div><input name="tags" type="checkbox"/>Душевая</div>
+                                <div><input name="tags" type="checkbox"/>Буфет</div>
+                                <div><input name="tags" type="checkbox"/>Уборная</div>
+                            </div>
                         </div>
                     </div>
                 </div>
