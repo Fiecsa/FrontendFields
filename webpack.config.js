@@ -1,4 +1,6 @@
-module.exports = {
+let path = require('path');
+
+    module.exports = {
   entry: [
     './src/index.js'
   ],
@@ -14,10 +16,12 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+      root:  path.join(__dirname, "src")
   },
   devServer: {
     historyApiFallback: true,
     contentBase: './'
   }
+
 };
