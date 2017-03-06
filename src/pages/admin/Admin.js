@@ -9,7 +9,8 @@ constructor() {
     this.fetchTag = this.fetchTag.bind(this);
 
     this.state = {
-        data: []
+        districtList: [],
+        tagList: []
     }
 }
 
@@ -25,7 +26,7 @@ constructor() {
             type: "GET",
             url: url,
             dataType: 'json',
-            success: data => this.setState({data})
+            success: data => this.setState({districtList: data})
         })
     }
 
@@ -36,7 +37,9 @@ constructor() {
             type: "GET",
             url: url,
             dataType: 'json',
-            success: data => this.setState({data})
+            success: (data ) => {
+                this.setState({tagList: data})
+            }
         })
     }
 
@@ -49,9 +52,9 @@ constructor() {
 }
 
     render(){
-    const {data} = this.state;
-    const districts = data.map(item => this.renderDistrict(item));
-    const tag = data.map(item => this.renderTag(item));
+    const {districtList, tagList} = this.state;
+    const districts = districtList.map(item => this.renderDistrict(item));
+    const tag = tagList.map(item => this.renderTag(item));
 
         return (
 
@@ -122,7 +125,7 @@ constructor() {
                                 </thead>
                                 <tbody>
                                    <tr className="districts">
-                                       <td>{districts}</td>
+                                       <td>{ districts }</td>
                                    </tr>
                                 </tbody>
                             </table>
@@ -135,7 +138,7 @@ constructor() {
                                 </tr>
                                 <tbody>
                                     <tr className="tags">
-                                        <td>{tag}</td>
+                                        <td>{ tag }</td>
                                     </tr>
                                 </tbody>
                             </table>
