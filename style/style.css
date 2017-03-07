@@ -280,3 +280,7 @@ td{
     float: right;
     margin-top: 5px;
 }
+
+.table_field tr{
+    border-bottom: 1px solid black;
+}

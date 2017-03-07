@@ -7,16 +7,20 @@ constructor() {
     super();
     this.fetchDistricts = this.fetchDistricts.bind(this);
     this.fetchTag = this.fetchTag.bind(this);
+    this.fetchField = this.fetchField.bind(this);
+
 
     this.state = {
         districtList: [],
-        tagList: []
+        tagList: [],
+        fieldList: []
     }
 }
 
     componentDidMount() {
         this.fetchDistricts();
         this.fetchTag();
+        this.fetchField();
     }
 
     fetchDistricts()
@@ -43,6 +47,19 @@ constructor() {
         })
     }
 
+    fetchField()
+    {
+        let url = "http://46.236.137.153/field";
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: 'json',
+            success: (data ) => {
+                this.setState({fieldList: data})
+            }
+        })
+    }
+
  renderDistrict(item, key) {
      return <tr className="districts"><td key ={key}>{item.name}</td></tr>
 }
@@ -51,10 +68,35 @@ constructor() {
     return <tr className="tags"><td key ={key}>{item.name}</td></tr>
 }
 
+ renderField(item, key) {
+    return (
+    <tr className="table_field">
+        <td key ={key}>{item.id}</td>
+        <td>{item.adress}</td>
+        <td>{item.cost_type}</td>
+        <td>{item.field_type}</td>
+        <td>{item.time}</td>
+        <td>{item.phone}</td>
+        <td>{item.district}</td>
+    </tr>)
+}
+
+
+
     render(){
-    const {districtList, tagList} = this.state;
-    const districts = districtList.map(item => this.renderDistrict(item));
-    const tag = tagList.map(item => this.renderTag(item));
+        const {districtList, tagList, fieldList} = this.state;
+
+        const districts = districtList.map(item => this.renderDistrict(item));
+
+        const tag = tagList.map(item => this.renderTag(item));
+
+        const id = fieldList.map(item => this.renderField(item));
+        const adress = fieldList.map(item => this.renderField(item));
+        const cost_type = fieldList.map(item => this.renderField(item));
+        const field_type = fieldList.map(item => this.renderField(item));
+        const time = fieldList.map(item => this.renderField(item));
+        const phone = fieldList.map(item => this.renderField(item));
+        const district = fieldList.map(item => this.renderField(item));
 
         return (
 
@@ -101,16 +143,27 @@ constructor() {
                     <div className="tab-content">
                         <div className="tab-pane active" id="tab1">
                             <table className="table_field">
+                                <thead>
                                 <tr>
-                                    <th>Тип оплаты</th>
-                                    <th>Время работы</th>
-                                    <th>Адрес</th>
-                                    <th>Телефон</th>
-                                    <th>Тип поля</th>
+                                    <td>ID</td>
+                                    <td>Адрес</td>
+                                    <td>Тип оплаты</td>
+                                    <td>Тип поля</td>
+                                    <td>Время работы</td>
+                                    <td>Телефон</td>
+                                    <td>Район</td>
                                 </tr>
-                                <tbody>
+                            </thead>
+
+                            <tbody>
                                 <tr>
-                                    <td></td>
+                                    <td>{ id }</td>
+                                    <td>{ adress }</td>
+                                    <td>{ cost_type }</td>
+                                    <td>{ field_type }</td>
+                                    <td>{ time }</td>
+                                    <td>{ phone }</td>
+                                    <td>{ district }</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -136,7 +189,8 @@ constructor() {
                                 <tr>
                                     <th>Тег</th>
                                 </tr>
-                                <tbody>
+
+                            <tbody>
                                     <tr className="tags">
                                         <td>{ tag }</td>
                                     </tr>
