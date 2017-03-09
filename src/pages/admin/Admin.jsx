@@ -84,7 +84,10 @@ constructor() {
              <td>{item.time}</td>
              <td>{item.phone}</td>
              <td>{item.district}</td>
-             <td><button>Изменить</button><button>Удалить</button></td>
+             <td>
+                 <button>Изменить</button>
+                 <button>Удалить</button>
+             </td>
          </tr>
      )
  }
@@ -118,12 +121,12 @@ constructor() {
                         </div>
                     </div>
                     <div className="admin_tags">
-                    <p>Теги</p>
-                    <div><input type="checkbox"/>Раздевалка</div>
-                    <div><input type="checkbox"/>Уборная</div>
-                    <div><input type="checkbox"/>Душ</div>
-                    <div><input type="checkbox"/>Буфет</div>
-                    <div><input type="checkbox"/>Особый</div>
+                        <p>Теги</p>
+                        <div><input type="checkbox"/>Раздевалка</div>
+                        <div><input type="checkbox"/>Уборная</div>
+                        <div><input type="checkbox"/>Душ</div>
+                        <div><input type="checkbox"/>Буфет</div>
+                        <div><input type="checkbox"/>Особый</div>
                     </div>
                     <button>Применить</button>
                     <button>Сбросить</button>
@@ -143,19 +146,21 @@ constructor() {
                     <div className="tab-content">
                         <div className="tab-pane active" id="tab1">
                             <table className="table_field">
-                            <thead>
-                                <th>ID</th>
-                                <th>Адрес</th>
-                                <th>Тип оплаты</th>
-                                <th>Тип поля</th>
-                                <th>Рабочее время</th>
-                                <th>Телефон</th>
-                                <th>Район</th>
-                                <th>Действия</th>
-                            </thead>
-                            <tbody>
-                                { field }
-                            </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Адрес</th>
+                                        <th>Тип оплаты</th>
+                                        <th>Тип поля</th>
+                                        <th>Рабочее время</th>
+                                        <th>Телефон</th>
+                                        <th>Район</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    { field }
+                                </tbody>
                             </table>
                         </div>
 
@@ -175,15 +180,15 @@ constructor() {
 
                         <div className="tab-pane" id="tab3">
                             <table className="table_tags">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Тег</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {tag}
-                             </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Тег</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {tag}
+                                </tbody>
                             </table>
                         </div>
                     </div>
