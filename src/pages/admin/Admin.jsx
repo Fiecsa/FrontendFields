@@ -61,11 +61,17 @@ constructor() {
 
 
  renderDistrict(item, key) {
-     return <tr className="districts"><td key ={key}>{item.name}</td></tr>
+     return <tr className="districts">
+         <td key ={key}>{item.id}</td>
+         <td>{item.name}</td>
+     </tr>
 }
 
  renderTag(item, key) {
-    return <tr className="tags"><td key ={key}>{item.name}</td></tr>
+    return <tr className="tags">
+        <td key ={key}>{item.id}</td>
+        <td>{item.name}</td>
+    </tr>
 }
 
  renderField(item, key) {
@@ -157,29 +163,27 @@ constructor() {
                             <table id="district" className="table_district">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Район</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <tr className="districts">
-                                       <td>{ districts }</td>
-                                   </tr>
+                                   { districts }
                                 </tbody>
                             </table>
                         </div>
 
                         <div className="tab-pane" id="tab3">
                             <table className="table_tags">
-                            <tbody>
+                            <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Тег</th>
                                 </tr>
-                            </tbody>
+                            </thead>
                             <tbody>
-                                    <tr className="tags">
-                                        <td>{ tag }</td>
-                                    </tr>
-                                </tbody>
+                            {tag}
+                             </tbody>
                             </table>
                         </div>
                     </div>
