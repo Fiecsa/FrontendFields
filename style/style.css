@@ -218,6 +218,9 @@ footer{
     height: 50px;
     background-color: white;
     vertical-align: middle;
+    content: " ";
+    clear: both;
+    display: table;
 }
 
 footer p{

@@ -170,10 +170,11 @@ constructor() {
 
                         <div className="tab-pane" id="tab3">
                             <table className="table_tags">
+                            <tbody>
                                 <tr>
                                     <th>Тег</th>
                                 </tr>
-
+                            </tbody>
                             <tbody>
                                     <tr className="tags">
                                         <td>{ tag }</td>

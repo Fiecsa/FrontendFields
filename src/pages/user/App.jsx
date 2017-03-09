@@ -8,8 +8,9 @@ class App extends Component{
         <div>
             <Header/>
             {this.props.children}
-            <Footer/>
-
+                <footer className="footer-bottom">
+                    <p>@ Young GeoS 2017</p>
+                </footer>
         </div>
      )
   }
