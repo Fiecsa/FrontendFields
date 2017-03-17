@@ -13,10 +13,10 @@ export default class Header extends React.Component {
         let url = "http://46.236.137.153/login";
 
             $.ajax({
-                type: "POST", /*POST - предназначен для отправления данных на сервер;*/
+                type: "POST", /*POST - для отправления данных*/
                 url: url,
                 dataType: 'json',
-                data: $("#idForm").serialize(), //#idForm - айдишник формы/#idForm - the form ID
+                data: $("#idForm").serialize(),
                 success: function(data)
                 {
                     Router.browserHistory.push('/admin');

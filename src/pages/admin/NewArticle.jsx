@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form';
 import {createArticle} from '../../actions/index';
+import axios from 'axios';
 
 let  MaskedInput = require('react-maskedinput');
 
@@ -10,10 +11,12 @@ class NewArticle extends Component{
         super();
         this.fetchDistricts = this.fetchDistricts.bind(this);
         this.fetchTag = this.fetchTag.bind(this);
+        this.selectDistrict = this.selectDistrict.bind(this);
 
         this.state = {
             districtList: [],
             tagList: [],
+            currentSelectDistrict: 1
         }
     }
 
@@ -44,6 +47,10 @@ class NewArticle extends Component{
         })
     }
 
+    selectDistrict(event) {
+        this.setState({currentSelectDistrict: event.target.value});
+    }
+
     renderDistrict(item, key) {
         return <option key ={key}>{item.name}</option>
     }
@@ -52,22 +59,43 @@ class NewArticle extends Component{
         return (<div key ={key}><input name="tags" type="checkbox">{ item.name }</input></div>)
     }
 
-     static contextTypes = {
-         router: PropTypes.object
-     };
+    static contextTypes = {
+        router: PropTypes.object
+    };
 
     onSubmit(props){
         this.props.createArticle(props)
-            .then(() => {
-                this.context.router.push('/');
-            });
+        .then(() => {
+            this.context.router.push('/');
+        });
+    }
 
+    add_field()
+    {
+        /* axios({
+            method: "POST", /!*POST - предназначен для отправления данных на сервер;*!/
+            url: 'http://46.236.137.153/field',
+            data: [{
+                adress: 'adress',
+                district: 'district',
+                cost_type: 'cost_type',
+                field_type: 'field_type',
+                time: 'time',
+                phone: 'phone',
+                tag: 'tag',
+            }]
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log('BLABLABLA');
+        });*/
     }
 
     render(){
-        const {fields:{adress, cost_type, field_type, time, phone}, handleSubmit} = this.props;
+        const {fields:{adress, district, cost_type, field_type, time, phone}, handleSubmit} = this.props;
         const {districtList, tagList} = this.state;
-        const districts = districtList.map(item => this.renderDistrict(item));
         const tag = tagList.map(item => this.renderTag(item));
 
         return(
@@ -76,7 +104,7 @@ class NewArticle extends Component{
 
                 <h1> Создание поля </h1>
 
-                <form  id="form_new_field" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                <form  id="form_new_field">
 
                     <div id="add-field-form" className="form-group">
                         <div className="row">
@@ -96,8 +124,24 @@ class NewArticle extends Component{
                                     <p>Район: </p>
                                 </div>
                                 <div className="col-md-6">
-                                    <select>
-                                        { districts }
+                                    <select name="district" value={ this.state.currentSelectDistrict }
+                                     onChange={
+                                         (event) => {
+                                             this.selectDistrict(event);
+                                         }
+                                     }
+                                    >
+                                        {
+                                            districtList.map((district, index) => {
+                                                return (
+                                                    <option
+                                                        value={ district.id }
+                                                        key={ index }>
+                                                            { district.name }
+                                                    </option>
+                                                );
+                                            })
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -164,10 +208,8 @@ class NewArticle extends Component{
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-success" onClick={this.NewField}>Создать</button>
+                    <button className="btn btn-success" onClick={this.add_field}>Создать</button>
                 </form>
-                <script type="text/javascript" src="src/public/js/jquery-3.1.1.js"></script>
-                <script type="text/javascript" src="src/public/js/jquery-3.1.1.min.js"></script>
             </section>
         );
     }

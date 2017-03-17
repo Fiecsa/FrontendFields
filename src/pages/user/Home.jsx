@@ -14,10 +14,6 @@ class Home extends Component {
     this.props.showUsers()
   }
 
-    onSubmit(){
-        this.context.router.push('/NewArticle');
-    }
-
     deleteButtonClick(id){
         this.props.deleteArticle(id);
 
@@ -36,10 +32,10 @@ class Home extends Component {
     }
 
 renderUsersList() {
-      return this.props.users.map((user) => {
+      return this.props.users.map((user, index) => {
       return (
 
-<section id="characteristic-fields" className="container">
+<section id="characteristic-fields" className="container" key={ index }>
       <div key={user.id} className='field-block col-md-9'>
          <div id="post-fields" className="post-fields">
              <div className="col-md-4">
@@ -56,9 +52,9 @@ renderUsersList() {
          </div>
           <div className="row"></div>
           <p className="tags">
-              {user.tags.map((tag)=>{
+              {user.tags.map((tag, index)=>{
               return(
-                  <div className="tag">{tag.name}</div>
+                  <div className="tag" key={ index }>{tag.name}</div>
               )
           })}
           </p>

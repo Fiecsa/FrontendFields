@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
 
     search()
     {
-        let url = "http://192.168.1.155/field";
+        let url = "http://46.236.137.153/field";
 
         $.ajax({
             type: "GET",
@@ -58,7 +58,7 @@ class SearchBar extends React.Component {
             <div className="input-group">
                 <input type="text" className="form-control" id="search-string" ref="search"/>
                 <span className="input-group-btn">
-                    <button className="btn btn-default" type="button" /*onClick={(event) => this.props.onSearchTerm(this.refs.componentWillMount.value)}*/ onClick={this.search}>Go!</button>
+                    <button className="btn btn-default" type="button" onClick={this.search}>Go!</button>
                 </span>
             </div>
         )

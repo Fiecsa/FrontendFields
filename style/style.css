@@ -25,6 +25,10 @@ html, body {
     height: 100%;
 }
 
+#search-string{
+    margin-bottom: 30px;
+}
+
 .container{
     background-color: white;
     height: 60%;
@@ -60,6 +64,10 @@ html, body {
 .search-button{
     margin: 20px 40px;
     float: right;
+}
+
+.btn-default{
+    margin-bottom: 30px;
 }
 
 #search-bar input, button{

@@ -7,15 +7,20 @@ import LoginView from './pages/user/LoginView';
 import Admin from './pages/admin/Admin';
 import search from './pages/user/search';
 
-
-
 export default(
   <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/home" component={Home} />
-      <Route path="/articles/new" component={NewArticle} />
+      <Route path="/articles" component={NewArticle} />
       <Route path="/login" component={LoginView} />
       <Route path="/admin" component={Admin} />
       <Route path="/search" component={search}/>
+        <Route path="/admin" component={App}>
+              <IndexRoute component={Home} />
+              <Route path="/articles" component={NewArticle} />
+        </Route>
   </Route>
+
+
+
 );

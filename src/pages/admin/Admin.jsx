@@ -139,7 +139,7 @@ constructor() {
                         <li><a href="#tab2"  data-toggle="tab">Районы</a></li>
                         <li><a href="#tab3"  data-toggle="tab">Теги</a></li>
                         <div className="admin_operation">
-                            <Link name="add_field"  to='articles/new' className="admin_add">Добавить</Link>
+                            <Link name="add_field"  to='articles' className="admin_add">Добавить</Link>
                         </div>
                     </ul>
 
