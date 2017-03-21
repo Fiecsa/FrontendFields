@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import axios from 'axios';
 
 let Router = require('react-router');
 
@@ -10,10 +11,23 @@ export default class Header extends React.Component {
 
     login()
     {
-        let url = "http://46.236.137.153/login";
-
-            $.ajax({
-                type: "POST", /*POST - для отправления данных*/
+        axios.post('http://46.236.137.153/login', {
+            responseType: 'json',
+            data: {
+                username: 'admin',
+                password: 'admin'
+            }
+        })
+            .then(function (response) {
+                Router.browserHistory.push('/admin');
+                console.log(response);
+            })
+            .catch(function (error) {
+                alert("Неверный логин/пароль.");
+                console.log(error);
+            });
+            /*$.ajax({
+                type: "POST",
                 url: url,
                 dataType: 'json',
                 data: $("#idForm").serialize(),
@@ -25,7 +39,7 @@ export default class Header extends React.Component {
                 {
                     alert("Неверный логин/пароль.");
                 }
-            });
+            });*/
     }
 
     render() {

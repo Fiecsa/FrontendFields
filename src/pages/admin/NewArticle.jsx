@@ -33,6 +33,13 @@ class NewArticle extends Component{
             dataType: 'json',
             success: data => this.setState({districtList: data})
         })
+        /*axios('http://46.236.137.153/district', { method: 'get'})
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })*/
     }
 
     fetchTag() {
@@ -51,46 +58,37 @@ class NewArticle extends Component{
         this.setState({currentSelectDistrict: event.target.value});
     }
 
-    renderDistrict(item, key) {
-        return <option key ={key}>{item.name}</option>
-    }
-
     renderTag(item, key) {
-        return (<div key ={key}><input name="tags" type="checkbox">{ item.name }</input></div>)
+        return (<p key ={item.id}><input name="tag" type="checkbox" />{ item.name }</p>)
     }
 
     static contextTypes = {
         router: PropTypes.object
     };
 
-    onSubmit(props){
-        this.props.createArticle(props)
-        .then(() => {
-            this.context.router.push('/');
-        });
-    }
+
 
     add_field()
     {
-        /* axios({
-            method: "POST", /!*POST - предназначен для отправления данных на сервер;*!/
-            url: 'http://46.236.137.153/field',
-            data: [{
+        axios.post({
+            method: 'post',
+            url:'http://46.236.137.153/field',
+            data:{
                 adress: 'adress',
                 district: 'district',
                 cost_type: 'cost_type',
                 field_type: 'field_type',
                 time: 'time',
                 phone: 'phone',
-                tag: 'tag',
-            }]
+                tag: 'tag'
+            }
         })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log('BLABLABLA');
-        });*/
+            .then(function (response) {
+                console.log('Yaaaaay');
+            })
+            .catch(function (error) {
+                console.log('ERROR');
+            })
     }
 
     render(){
@@ -113,7 +111,7 @@ class NewArticle extends Component{
                                     <p>Адрес:</p>
                                 </div>
                                 <div className="col-md-6">
-                                    <input name="adress" type="text" className="form-control" {...adress} placeholder="Улица"/>
+                                    <input name="adress" type="text" className="form-control" placeholder="Улица"/>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +179,7 @@ class NewArticle extends Component{
                                     <p>Время: </p>
                                 </div>
                                 <div className="col-md-2">
-                                    <input className="time" name="time" type="text"/>
+                                    <input className="time" name="time" type="text"  maxLength="11"/>
                                 </div>
                             </div>
                         </div>

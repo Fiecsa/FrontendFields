@@ -102,7 +102,7 @@ select{
 }
 
 .time input{
-    width: 100%;
+    width: 125px;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -294,9 +294,26 @@ td{
 
 table tr{
     border: 1px solid black;
+    font-size: 12px;
+
 }
 
 .table_field button{
     float: right;
 }
 
+.tag{
+    line-height: 0.8;
+}
+
+.action{
+    padding: 10px 10px;
+}
+
+.button-action{
+    display: flex;
+}
+
+.button-action button{
+    margin-right: 5px;
+}

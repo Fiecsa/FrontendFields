@@ -51,13 +51,13 @@ renderUsersList() {
             </div>
          </div>
           <div className="row"></div>
-          <p className="tags">
+          <span className="tags">
               {user.tags.map((tag, index)=>{
               return(
-                  <div className="tag" key={ index }>{tag.name}</div>
+                  <p className="tag" key={ index }>{tag.name}</p>
               )
           })}
-          </p>
+          </span>
           <h5>#{user.id}</h5>
       </div>
 </section>

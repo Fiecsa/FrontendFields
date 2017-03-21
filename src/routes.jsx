@@ -5,7 +5,6 @@ import Home from './pages/user/Home';
 import NewArticle from './pages/admin/NewArticle';
 import LoginView from './pages/user/LoginView';
 import Admin from './pages/admin/Admin';
-import search from './pages/user/search';
 
 export default(
   <Route path="/" component={App}>
@@ -14,9 +13,8 @@ export default(
       <Route path="/articles" component={NewArticle} />
       <Route path="/login" component={LoginView} />
       <Route path="/admin" component={Admin} />
-      <Route path="/search" component={search}/>
         <Route path="/admin" component={App}>
-              <IndexRoute component={Home} />
+              <IndexRoute component={Admin} />
               <Route path="/articles" component={NewArticle} />
         </Route>
   </Route>

@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
+import axios from 'axios';
 
 class Admin extends Component {
 
@@ -8,6 +9,7 @@ constructor() {
     this.fetchDistricts = this.fetchDistricts.bind(this);
     this.fetchTag = this.fetchTag.bind(this);
     this.fetchField = this.fetchField.bind(this);
+    this.districtToState = this.districtToState.bind(this);
 
     this.state = {
         districtList: [],
@@ -22,71 +24,91 @@ constructor() {
         this.fetchField();
     }
 
+    districtToState(data) {
+        this.setState({districtList: data});
+    }
+
+    tagToState(data) {
+        this.setState({tagList: data});
+    }
+
+    fieldToState(data) {
+        this.setState({fieldList: data});
+    }
+
     fetchDistricts()
     {
-        let url = "http://46.236.137.153/district";
-        $.ajax({
-            type: "GET",
-            url: url,
-            dataType: 'json',
-            success: data => this.setState({districtList: data})
+        axios.get('http://46.236.137.153/district', {
+            responseType: 'json'
+        })
+        .then((response) => {
+            this.districtToState(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
         })
     }
 
     fetchTag()
     {
-        let url = "http://46.236.137.153/tag";
-        $.ajax({
-            type: "GET",
-            url: url,
-            dataType: 'json',
-            success: (data ) => {
-                this.setState({tagList: data})
-            }
+        axios.get('http://46.236.137.153/tag', {
+            responseType: 'json'
+        })
+        .then((response) => {
+            this.tagToState(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
         })
     }
 
     fetchField()
     {
-        let url = "http://46.236.137.153/field";
-        $.ajax({
-            type: "GET",
-            url: url,
-            dataType: 'json',
-            success: (data ) => {
-                this.setState({fieldList: data})
-            }
+        axios.get("http://46.236.137.153/field", {
+            responseType: 'json'
+        })
+        .then((response) => {
+            this.fieldToState(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
         })
     }
 
 
  renderDistrict(item, key) {
-     return <tr className="districts">
-         <td key ={key}>{item.id}</td>
-         <td>{item.name}</td>
-     </tr>
+     return (
+        <tr key ={item.id} className="districts">
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+        </tr>
+     )
 }
 
  renderTag(item, key) {
-    return <tr className="tags">
-        <td key ={key}>{item.id}</td>
-        <td>{item.name}</td>
-    </tr>
+     return (
+         <tr key ={item.id} className="tags">
+             <td>{item.id}</td>
+             <td>{item.name}</td>
+         </tr>
+     )
 }
 
  renderField(item, key) {
      return (
-         <tr className="table_field">
-             <td key={key}>{item.id}</td>
+         <tr key ={item.id} className="table_field">
+             <td>{item.id}</td>
              <td>{item.adress}</td>
              <td>{item.cost_type}</td>
              <td>{item.field_type}</td>
              <td>{item.time}</td>
              <td>{item.phone}</td>
              <td>{item.district}</td>
-             <td>
-                 <button>Изменить</button>
-                 <button>Удалить</button>
+             <td className="action">
+                 <div className="button-action">
+                    <button>Изменить</button>
+                    <button>Удалить</button>
+                 </div>
              </td>
          </tr>
      )
@@ -158,7 +180,7 @@ constructor() {
                                         <th>Действия</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className="action">
                                     { field }
                                 </tbody>
                             </table>
