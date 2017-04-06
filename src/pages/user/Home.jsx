@@ -32,6 +32,7 @@ class Home extends Component {
     }
 
 renderUsersList() {
+
       return this.props.users.map((user, index) => {
       return (
 

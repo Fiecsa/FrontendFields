@@ -34,16 +34,6 @@ class SearchBar extends React.Component {
                         "<div class='row'></div>"
 
                     )
-                  //DO SHIT WITH FIELD
-
-                    /*
-
-
-
-
-
-
-                     */
             })
             },
             error: function ()

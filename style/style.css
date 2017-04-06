@@ -102,7 +102,7 @@ select{
 }
 
 .time input{
-    width: 125px;
+    width: 225px;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -316,4 +316,8 @@ table tr{
 
 .button-action button{
     margin-right: 5px;
+}
+
+.asshole{
+    width: 200px;
 }

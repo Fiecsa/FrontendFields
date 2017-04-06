@@ -18,7 +18,4 @@ export default(
               <Route path="/articles" component={NewArticle} />
         </Route>
   </Route>
-
-
-
 );

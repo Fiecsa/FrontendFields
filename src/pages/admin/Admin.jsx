@@ -4,19 +4,19 @@ import axios from 'axios';
 
 class Admin extends Component {
 
-constructor() {
-    super();
-    this.fetchDistricts = this.fetchDistricts.bind(this);
-    this.fetchTag = this.fetchTag.bind(this);
-    this.fetchField = this.fetchField.bind(this);
-    this.districtToState = this.districtToState.bind(this);
+    constructor() {
+        super();
+        this.fetchDistricts = this.fetchDistricts.bind(this);
+        this.fetchTag = this.fetchTag.bind(this);
+        this.fetchField = this.fetchField.bind(this);
+        this.districtToState = this.districtToState.bind(this);
 
-    this.state = {
-        districtList: [],
-        tagList: [],
-        fieldList: [],
+        this.state = {
+            districtList: [],
+            tagList: [],
+            fieldList: [],
+        }
     }
-}
 
     componentDidMount() {
         this.fetchDistricts();
@@ -81,6 +81,12 @@ constructor() {
         <tr key ={item.id} className="districts">
             <td>{item.id}</td>
             <td>{item.name}</td>
+            <td className="action">
+                <div className="button-action">
+                    <button>Изменить</button>
+                    <button>Удалить</button>
+                </div>
+            </td>
         </tr>
      )
 }
@@ -90,6 +96,12 @@ constructor() {
          <tr key ={item.id} className="tags">
              <td>{item.id}</td>
              <td>{item.name}</td>
+             <td className="action">
+                 <div className="button-action">
+                     <button>Изменить</button>
+                     <button>Удалить</button>
+                 </div>
+             </td>
          </tr>
      )
 }
@@ -141,6 +153,16 @@ constructor() {
                         <div>
                             <input type="checkbox"/>Октябрьский
                         </div>
+                        <div>
+                            <input type="checkbox"/>Вокзальный
+                        </div>
+                        <div>
+                            <input type="checkbox"/>Ленинский
+                        </div>
+                        <div>
+                            <input type="checkbox"/>Куйбышевский
+                        </div>
+
                     </div>
                     <div className="admin_tags">
                         <p>Теги</p>
@@ -164,6 +186,7 @@ constructor() {
                             <Link name="add_field"  to='articles' className="admin_add">Добавить</Link>
                         </div>
                     </ul>
+
 
                     <div className="tab-content">
                         <div className="tab-pane active" id="tab1">
@@ -192,6 +215,7 @@ constructor() {
                                     <tr>
                                         <th>ID</th>
                                         <th>Район</th>
+                                        <th>Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -206,6 +230,7 @@ constructor() {
                                     <tr>
                                         <th>ID</th>
                                         <th>Тег</th>
+                                        <th>Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>

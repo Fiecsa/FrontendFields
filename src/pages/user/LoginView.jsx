@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router';
 import axios from 'axios';
 
 let Router = require('react-router');
+let serialize = require('form-serialize');
 
 
 export default class Header extends React.Component {
@@ -11,16 +11,21 @@ export default class Header extends React.Component {
 
     login()
     {
-        axios.post('http://46.236.137.153/login', {
+        let form = document.querySelector('#idForm');
+        let obj = serialize(form, { hash: true });
+
+        let result = JSON.stringify(obj);
+
+        console.log(result);
+        axios('http://46.236.137.153/login', {
+            method: 'post',
             responseType: 'json',
-            data: {
-                username: 'admin',
-                password: 'admin'
-            }
+            requestType: 'json',
+            headers: {'Content-Type' : 'application/json; charset=UTF-8'},
+            data: result,
         })
             .then(function (response) {
                 Router.browserHistory.push('/admin');
-                console.log(response);
             })
             .catch(function (error) {
                 alert("Неверный логин/пароль.");
