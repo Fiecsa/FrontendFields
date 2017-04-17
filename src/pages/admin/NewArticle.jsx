@@ -22,7 +22,6 @@ class NewArticle extends Component{
                 time: 'time',
                 phone: 'phone',
                 tag: [],
-
             },
             districtList: [],
             tagList: [],
@@ -49,27 +48,18 @@ class NewArticle extends Component{
             headers: {'Content-Type' : 'application/json; charset=UTF-8'},
             data: result,
         })
-        .then(function (response) {
-            console.log(123);
-            alert('Добавлено!');
-            console.log(result);
+        .then(function (result) {
+            console.log('DAIJOBU');
+            Router.browserHistory.push('/admin');
         })
         .catch(function (error) {
-            console.log(213);
-            alert('Заполните все поля!');
             console.log(error);
+            console.log('213');
+            alert('Заполните все поля!');
         });
     }
 
     fetchDistricts() {
-        //let url = "http://46.236.137.153/district";
-
-       /* $.ajax({
-            type: "GET",
-            url: url,
-            dataType: 'json',
-            success: data => this.setState({districtList: data})
-        })*/
         axios('http://46.236.137.153/district', {
             method: 'get',
             responseType: 'json'

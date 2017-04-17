@@ -2,7 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
 
+
 class Admin extends Component {
+
 
     constructor() {
         super();
@@ -75,6 +77,20 @@ class Admin extends Component {
         })
     }
 
+    delField()
+    {
+        axios.get("http://46.236.137.153/field", {
+            method: 'DELETE',
+            responseType: 'json'
+        })
+            .then((response) => {
+                console.log(response);
+                alert("Запись удалена.");
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
 
  renderDistrict(item, key) {
      return (
@@ -119,7 +135,7 @@ class Admin extends Component {
              <td className="action">
                  <div className="button-action">
                     <button>Изменить</button>
-                    <button>Удалить</button>
+                    <button onClick={ this.delField }>Удалить</button>
                  </div>
              </td>
          </tr>
@@ -183,7 +199,9 @@ class Admin extends Component {
                         <li><a href="#tab2"  data-toggle="tab">Районы</a></li>
                         <li><a href="#tab3"  data-toggle="tab">Теги</a></li>
                         <div className="admin_operation">
-                            <Link name="add_field"  to='articles' className="admin_add">Добавить</Link>
+                            <Link name="addField"  to='/articles' className="admin_add">Добавить футбольное поле</Link>
+                            <Link name="addDistrict"  to='/district' className="admin_add">Добавить район</Link>
+                            <Link name="addTag"  to='/tag' className="admin_add">Добавить тег</Link>
                         </div>
                     </ul>
 

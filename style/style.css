@@ -290,6 +290,7 @@ td{
 .admin_add{
     float: right;
     margin-top: 5px;
+    padding-left: 10px;
 }
 
 table tr{
