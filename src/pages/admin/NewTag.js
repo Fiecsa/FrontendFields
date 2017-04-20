@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import axios from 'axios';
 
 let serialize = require('form-serialize');
+let Router = require('react-router');
 
 class NewTag extends Component {
 
@@ -12,22 +13,21 @@ class NewTag extends Component {
 
         let result = JSON.stringify(obj);
 
-        console.log(result);
-
-        axios.post('http://46.236.137.153/tag', {
-            method: 'post',
+        axios('http://46.236.137.153/tag', {
+            method: 'POST',
             responseType: 'json',
-            headers: {'Content-Type' : 'application/json'},
+            requestType: 'json',
+            headers: {'Content-Type' : 'application/json; charset=UTF-8'},
             data: result,
         })
-            .then(function () {
-                alert('OLOLOLOLOLOLOLOLOLO');
-                console.log('DAIJOBU');
+            .then(function (result) {
+                console.log(result);
+                Router.browserHistory.push('/admin');
             })
             .catch(function (error) {
-                alert('SADASDASDASDAS');
+                console.log(result);
                 console.log(error);
-                console.log('nope');
+                alert('Заполните поле!');
             });
     }
 
@@ -36,7 +36,7 @@ class NewTag extends Component {
             <form id="addFormTag" className="districtForm">
                 <div className="alignDistrict">
                     <div className="col-md-3"><input id="inputDistrict" type="text" name="name" placeholder="Введите новый тег"/></div>
-                    <div className="col-md-3"><button type="submit" id="addDistrict" onClick={this.addTag}>Добавить</button></div>
+                    <div className="col-md-3"><button type="button" id="addDistrict" onClick={this.addTag}>Добавить</button></div>
                 </div>
             </form>
         )
