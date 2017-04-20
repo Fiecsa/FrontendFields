@@ -52,6 +52,7 @@ class NewArticle extends Component{
         })
         .then(function (result) {
             console.log(result);
+            alert('Поле добавлено.');
             Router.browserHistory.push('/admin');
         })
         .catch(function (error) {

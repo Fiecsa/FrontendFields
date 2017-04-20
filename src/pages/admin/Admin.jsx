@@ -2,6 +2,8 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
 
+let Router = require('react-router');
+
 
 class Admin extends Component {
 
@@ -77,20 +79,42 @@ class Admin extends Component {
         })
     }
 
-    delField()
+    delField(itemId)
     {
-        axios.get("http://46.236.137.153/field", {
-            method: 'DELETE',
+        let me = this;
+        axios.delete('http://46.236.137.153/field/' + itemId,{
             responseType: 'json'
         })
-            .then((response) => {
-                console.log(response);
-                alert("Запись удалена.");
-            })
-            .catch(function (error) {
-                console.log(error);
+            .then(function () {
+                alert('Данные удалены.');
+                me.fetchField();
             })
     }
+
+    delDistrict(itemId)
+    {
+        let me = this;
+        axios.delete('http://46.236.137.153/district/' + itemId,{
+            responseType: 'json'
+        })
+            .then(function () {
+                alert('Данные удалены.');
+                me.fetchDistricts();
+            })
+    }
+
+    delTag(itemId)
+    {
+        let me = this;
+        axios.delete('http://46.236.137.153/tag/' + itemId,{
+            responseType: 'json'
+        })
+            .then(function () {
+                alert('Данные удалены.');
+                me.fetchTag();
+            })
+    }
+
 
  renderDistrict(item, key) {
      return (
@@ -100,7 +124,9 @@ class Admin extends Component {
             <td className="action">
                 <div className="button-action">
                     <button>Изменить</button>
-                    <button>Удалить</button>
+                    <input type="button" onClick={() => {
+                        this.delDistrict(item.id);
+                    }} value='Удалить'/>
                 </div>
             </td>
         </tr>
@@ -115,7 +141,9 @@ class Admin extends Component {
              <td className="action">
                  <div className="button-action">
                      <button>Изменить</button>
-                     <button>Удалить</button>
+                     <input type="button" onClick={() => {
+                         this.delTag(item.id);
+                     }} value='Удалить'/>
                  </div>
              </td>
          </tr>
@@ -135,7 +163,9 @@ class Admin extends Component {
              <td className="action">
                  <div className="button-action">
                     <button>Изменить</button>
-                    <button onClick={ this.delField }>Удалить</button>
+                     <input type="button" onClick={() => {
+                         this.delField(item.id);
+                     }} value='Удалить'/>
                  </div>
              </td>
          </tr>
