@@ -17,6 +17,7 @@ export default class Header extends React.Component {
         let result = JSON.stringify(obj);
 
         console.log(result);
+
         axios('http://46.236.137.153/login', {
             method: 'post',
             responseType: 'json',
@@ -24,27 +25,13 @@ export default class Header extends React.Component {
             headers: {'Content-Type' : 'application/json; charset=UTF-8'},
             data: result,
         })
-            .then(function (response) {
+            .then(function () {
                 Router.browserHistory.push('/admin');
             })
             .catch(function (error) {
                 alert("Неверный логин/пароль.");
                 console.log(error);
             });
-            /*$.ajax({
-                type: "POST",
-                url: url,
-                dataType: 'json',
-                data: $("#idForm").serialize(),
-                success: function(data)
-                {
-                    Router.browserHistory.push('/admin');
-                },
-                error: function ()
-                {
-                    alert("Неверный логин/пароль.");
-                }
-            });*/
     }
 
     render() {

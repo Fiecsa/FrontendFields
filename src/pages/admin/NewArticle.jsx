@@ -5,6 +5,7 @@ import axios from 'axios';
 
 let  MaskedInput = require('react-maskedinput');
 let serialize = require('form-serialize');
+let Router = require('react-router');
 
 class NewArticle extends Component{
 
@@ -34,12 +35,13 @@ class NewArticle extends Component{
         this.fetchTag();
     }
 
-    addField(event)
+    addField()
     {
         let form = document.querySelector('#form_new_field');
         let obj = serialize(form, { hash: true });
 
         let result = JSON.stringify(obj);
+        console.log(result);
 
         axios('http://46.236.137.153/field', {
             method: 'POST',
@@ -49,7 +51,7 @@ class NewArticle extends Component{
             data: result,
         })
         .then(function (result) {
-            console.log('DAIJOBU');
+            console.log(result);
             Router.browserHistory.push('/admin');
         })
         .catch(function (error) {
@@ -211,7 +213,7 @@ class NewArticle extends Component{
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-success" onClick={ this.addField }>Добавить</button>
+                    <div className="btn btn-success" onClick={ this.addField }>Добавить</div>
                 </form>
             </section>
         );

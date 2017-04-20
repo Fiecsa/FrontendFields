@@ -322,3 +322,21 @@ table tr{
 .asshole{
     width: 200px;
 }
+
+.districtForm{
+    margin-top: 282px;
+    padding-bottom: 389px;
+}
+
+#addDistrict{
+    float: left;
+}
+
+#inputDistrict{
+    float: right;
+}
+
+.alignDistrict{
+    margin-left: 44%;
+    margin-right: 30%;
+}
