@@ -35,8 +35,8 @@ class NewTag extends Component {
         return(
             <form id="addFormTag" className="districtForm">
                 <div className="alignDistrict">
-                    <div className="col-md-3"><input id="inputDistrict" type="text" name="name" placeholder="Введите новый тег"/></div>
-                    <div className="col-md-3"><button type="button" id="addDistrict" onClick={this.addTag}>Добавить</button></div>
+                    <div className="col-md-8"><input id="inputDistrict" type="text" name="name" placeholder="Введите новый тег"/></div>
+                    <div className="col-md-4"><button type="button" id="addDistrict" onClick={this.addTag}>Добавить</button></div>
                 </div>
             </form>
         )

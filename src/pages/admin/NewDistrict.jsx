@@ -35,8 +35,8 @@ class NewDistrict extends Component {
         return(
             <form id="addFormDistrict" className="districtForm">
                 <div className="alignDistrict">
-                    <div className="col-md-3"><input id="inputDistrict" type="text" name="name" placeholder="Введите новый район"/></div>
-                    <div className="col-md-3"><input type="button" id="addDistrict" onClick={this.addDistrict} value="Добавить"/></div>
+                    <div className="col-md-8"><input id="inputDistrict" type="text" name="name" placeholder="Введите новый район"/></div>
+                    <div className="col-md-4"><input type="button" id="addDistrict" onClick={this.addDistrict} value="Добавить"/></div>
                 </div>
             </form>
         )

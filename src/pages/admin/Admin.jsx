@@ -145,7 +145,7 @@ class Admin extends Component {
                         console.log(item.id);
                         this.changeDistrict(item.id);
                     } }/>
-                    <button type="button" onClick={() => {
+                    <input type="button" onClick={() => {
                         this.delDistrict(item.id);
                     }} value='Удалить'/>
                 </div>

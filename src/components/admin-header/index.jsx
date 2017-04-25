@@ -1,6 +1,3 @@
-/**
- * Created by admin on 27.02.2017.
- */
 import React from 'react';
 import {Link} from 'react-router';
 
@@ -20,6 +17,7 @@ export default class Header extends React.Component {
                             <li><Link to='/'>Дратути</Link></li>
                             <li><Link to='articles/new'>Дратути</Link></li>
                             <li><Link to='/login'>Дратути</Link></li>
+
                         </ul>
                     </div>
                 </nav>
