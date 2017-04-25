@@ -325,18 +325,34 @@ table tr{
 
 .districtForm{
     margin-top: 282px;
-    padding-bottom: 389px;
+    padding-bottom: 322px;
 }
 
 #addDistrict{
-    float: left;
+    float: right;
 }
 
-#inputDistrict{
+.inputDistrict{
     float: right;
 }
 
 .alignDistrict{
     margin-left: 44%;
     margin-right: 30%;
+}
+
+.displayNoneClass{
+    display: none;
+}
+
+.stateChange{
+    font-weight: bolder;
+}
+
+.titleChange h1{
+    text-align: center;
+}
+
+.previous{
+    text-align: center;
 }

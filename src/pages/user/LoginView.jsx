@@ -19,7 +19,7 @@ export default class Header extends React.Component {
         console.log(result);
 
         axios('http://46.236.137.153/login', {
-            method: 'post',
+            method: 'POST',
             responseType: 'json',
             requestType: 'json',
             headers: {'Content-Type' : 'application/json; charset=UTF-8'},

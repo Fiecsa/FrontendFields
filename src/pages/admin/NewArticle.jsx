@@ -3,7 +3,7 @@ import {reduxForm} from 'redux-form';
 import {createArticle} from '../../actions/index';
 import axios from 'axios';
 
-let  MaskedInput = require('react-maskedinput');
+let MaskedInput = require('react-maskedinput');
 let serialize = require('form-serialize');
 let Router = require('react-router');
 
